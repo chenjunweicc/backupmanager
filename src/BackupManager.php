@@ -58,10 +58,10 @@ class BackupManager
                 ];
             }else{
                 $filesData[] = [
-                    'name' => $file['basename'],
+                    'name' => $file['name'],
                     'size_raw' => $file['size'],
                     'size' => $this->formatSizeUnits($file['size']),
-                    'type' => $file['basename'][0] === 'd' ? 'Database' : 'Files',
+                    'type' => $file['name'][0] === 'd' ? 'Database' : 'Files',
                     'date' => date('M d Y', $this->getFileTimeStamp($file))
                 ];
             }

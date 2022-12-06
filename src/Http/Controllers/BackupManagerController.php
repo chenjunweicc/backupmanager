@@ -191,8 +191,14 @@ class BackupManagerController extends BaseController
         return redirect()->back();
     }
 
-    public function download($file)
+    public function download($file, $fileId = '')
     {
+        if ($file !== $fileId) {
+            return response()->streamDownload(function () use ($fileId) {
+                echo Storage::disk(config('backupmanager.backups.disk'))->get($fileId);
+            }, $file);
+        }
+
         $path = config('backupmanager.backups.backup_path') . DIRECTORY_SEPARATOR . $file;
 
         $file = Storage::disk(config('backupmanager.backups.disk'))

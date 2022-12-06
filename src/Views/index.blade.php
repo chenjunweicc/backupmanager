@@ -49,7 +49,7 @@
                         <span class="col-sm-8 badge badge-{{$backup['type'] === 'Files' ? 'primary' : 'success'}}">{{$backup['type']}}</span>
                     </td>
                     <td style="text-align: center;">
-                        <a href="{{ route('backupmanager_download', [$backup['name']])  }}">
+                        <a href="{{ route('backupmanager_download', [$backup['name'], $backup['basename']])  }}">
                             <i class="fa fa-download btn btn-primary"></i>
                         </a>
                     </td>

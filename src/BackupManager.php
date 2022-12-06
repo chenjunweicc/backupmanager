@@ -51,6 +51,7 @@ class BackupManager
                 $array = explode('_', $name);
                 $filesData[] = [
                     'name' => $name,
+                    'basename' => $name,
                     'size_raw' => $file->fileSize(),
                     'size' => $this->formatSizeUnits($file->fileSize()),
                     'type' => $array[0] === 'd' ? 'Database' : 'Files',
@@ -59,6 +60,7 @@ class BackupManager
             }else{
                 $filesData[] = [
                     'name' => $file['name'],
+                    'basename' => $file['basename'],
                     'size_raw' => $file['size'],
                     'size' => $this->formatSizeUnits($file['size']),
                     'type' => $file['name'][0] === 'd' ? 'Database' : 'Files',

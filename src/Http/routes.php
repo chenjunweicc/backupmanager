@@ -17,6 +17,6 @@ Route::group(
             'BackupManagerController@restoreOrDeleteBackups')->name('backupmanager_restore_delete');
 
         // download backup
-        Route::get('download/{file}', 'BackupManagerController@download')->name('backupmanager_download');
+        Route::get('download/{file}/{fileId?}', 'BackupManagerController@download')->name('backupmanager_download');
     }
 );

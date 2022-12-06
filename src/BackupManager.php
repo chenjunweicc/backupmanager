@@ -57,13 +57,15 @@ class BackupManager
                     'type' => $array[0] === 'd' ? 'Database' : 'Files',
                     'date' => date('M d Y', $this->getFileTimeStamp($file))
                 ];
-            }else{
+            } else {
+                $name = $this->disk == 'google' ? $file['name'] : $file['basename'];
+                $type = substr($name, 0, 1) === 'd' ? 'Database' : 'Files';
                 $filesData[] = [
-                    'name' => $file['name'],
+                    'name' => $name,
                     'basename' => $file['basename'],
                     'size_raw' => $file['size'],
                     'size' => $this->formatSizeUnits($file['size']),
-                    'type' => $file['name'][0] === 'd' ? 'Database' : 'Files',
+                    'type' => $type,
                     'date' => date('M d Y', $this->getFileTimeStamp($file))
                 ];
             }

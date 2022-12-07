@@ -128,7 +128,8 @@ class BackupManager
         $status = false;
 
         foreach ($files as $file) {
-            $status = Storage::disk($this->disk)->delete($this->backupPath . $file);
+            $path = $this->disk === 'google' ? $file : $this->backupPath . $file;
+            $status = Storage::disk($this->disk)->delete($path);
         }
 
         return $status;

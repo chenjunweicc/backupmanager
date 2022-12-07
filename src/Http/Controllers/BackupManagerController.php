@@ -24,7 +24,7 @@ class BackupManagerController extends BaseController
 
         $backups = collect(BackupManager::getBackups())->filter(function($file){
             return $file['size_raw'];
-        })->toArray();
+        })->values()->toArray();
 
         return view('backupmanager::index', compact('title', 'backups'));
     }

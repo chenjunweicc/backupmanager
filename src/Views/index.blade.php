@@ -54,7 +54,7 @@
                         </a>
                     </td>
                     <td style="text-align: center;">
-                        <input type="checkbox" name="backups[]" class="chkBackup" value="{{$backup['name']}}">
+                        <input type="checkbox" name="backups[]" class="chkBackup" value="{{$backup['basename']}}">
                     </td>
                 </tr>
             @endforeach
